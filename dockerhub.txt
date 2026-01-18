@@ -1,0 +1,24 @@
+--------------------STAGE---------------------
+
+# Сборка образа для staging
+docker build -t mist3s/leaf-flow-notifications-worker:stage -f Dockerfile .
+
+# Пуш образа в Docker Hub
+docker push mist3s/leaf-flow-notifications-worker:stage
+
+---------------------------------------------
+
+Локальный запуск: python -m leaf_flow
+
+--------------------PROD---------------------
+
+# Сборка образа для staging
+docker build -t mist3s/leaf-flow-notifications-worker:prod -f Dockerfile .
+
+# Пуш образа в Docker Hub
+docker push mist3s/leaf-flow-notifications-worker:prod
+
+----------------------------------------------
+
+
+
