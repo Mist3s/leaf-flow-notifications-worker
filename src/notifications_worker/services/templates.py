@@ -38,20 +38,19 @@ def render_order_message_admin(e: NotificationsOrderEntity) -> str:
 
     lines = [
         f"<b>Новый заказ</b>",
-        f"📦 <b>Заказ #{e.order_id}</b>",
+        f"📦 <b>Заказ #{e.order_id}</b>\n",
         f"👤 <b>Клиент:</b> {e.customer_name}",
         f"📱 <b>Телефон:</b> {e.phone}",
         f"💰 <b>Сумма:</b> {e.total}",
         f"🚚 <b>Доставка:</b> {delivery_method}",
+        f"📅 <b>Дата:</b> {e.created_at}"
     ]
     if e.email:
         lines.append(f"📧 <b>Email:</b> {e.email}")
     if e.address:
         lines.append(f"🗾 <b>Адрес:</b> {e.address}")
     if e.comment:
-        lines.append("")
-        lines.append("━━━━━━━━━━━━━━━━━━━━")
-        lines.append("")
+        lines.append("\n━━━━━━━━━━━━━━━━━━━━\n")
         lines.append(f"💬 <b>Комментарий:</b>\n{e.comment}")
     return "\n".join(lines)
 

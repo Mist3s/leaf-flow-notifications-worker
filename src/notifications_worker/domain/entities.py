@@ -21,3 +21,4 @@ class NotificationsOrderEntity(BaseModel):
     status_comment: str | None = None
     admin_chat_id: int | None = None
     thread_id: int | None = None
+    created_at: str
