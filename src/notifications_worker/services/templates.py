@@ -37,8 +37,8 @@ def render_order_message_admin(e: NotificationsOrderEntity) -> str:
     delivery_method = _human_delivery(e.delivery_method)
 
     lines = [
-        f"<b>Новый заказ</b>",
-        f"📦 <b>Заказ #{e.order_id}</b>\n",
+        f"<b>Новый заказ</b>\n",
+        f"📦 <b>Заказ #{e.order_id}</b>",
         f"👤 <b>Клиент:</b> {e.customer_name}",
         f"📱 <b>Телефон:</b> {e.phone}",
         f"💰 <b>Сумма:</b> {e.total}",
