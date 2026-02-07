@@ -12,8 +12,8 @@ class LeafFlowClient:
     """Клиент для LeafFlow Internal API."""
 
     def __init__(self) -> None:
-        self._base_url = leafflow_settings.leafflow_api_url.rstrip("/")
-        self._token = leafflow_settings.leafflow_internal_token
+        self._base_url = leafflow_settings.api_base_url.rstrip("/")
+        self._token = leafflow_settings.internal_token
 
     def _headers(self) -> dict[str, str]:
         return {
@@ -25,9 +25,9 @@ class LeafFlowClient:
         """
         Сохранить метаданные варианта изображения.
 
-        POST /api/v1/internal/images/{image_id}/variants
+        POST /v1/internal/images/{image_id}/variants
         """
-        url = f"{self._base_url}/api/v1/internal/images/{image_id}/variants"
+        url = f"{self._base_url}/v1/internal/images/{image_id}/variants"
 
         payload = {
             "variant": variant.variant,

@@ -32,8 +32,8 @@ class Settings(BaseSettings):
     s3_use_ssl: bool = False
 
     # leafflow
-    leafflow_api_url: str
-    leafflow_internal_token: str
+    api_base_url: str
+    internal_token: str
 
     # cloudinary
     cloudinary_cloud_name: str
