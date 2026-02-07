@@ -35,6 +35,11 @@ class Settings(BaseSettings):
     leafflow_api_url: str
     leafflow_internal_token: str
 
+    # cloudinary
+    cloudinary_cloud_name: str
+    cloudinary_api_key: str
+    cloudinary_api_secret: str
+
     @property
     def broker_url(self) -> str:
         return self.celery_broker_url or f"redis://{self.redis_host}:{self.redis_port}/{self.redis_broker_db}"

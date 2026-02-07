@@ -4,15 +4,15 @@ import cloudinary
 import cloudinary.uploader
 import httpx
 
-from notifications_worker.infra.cloudinary.settings import cloudinary_settings
+from notifications_worker.infra.settings import settings as cloudinary_settings
 
 logger = logging.getLogger(__name__)
 
 # Инициализация Cloudinary
 cloudinary.config(
-    cloud_name=cloudinary_settings.cloud_name,
-    api_key=cloudinary_settings.api_key,
-    api_secret=cloudinary_settings.api_secret,
+    cloud_name=cloudinary_settings.cloudinary_cloud_name,
+    api_key=cloudinary_settings.cloudinary_api_key,
+    api_secret=cloudinary_settings.cloudinary_api_secret,
     secure=True,
 )
 
