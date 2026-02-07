@@ -23,6 +23,18 @@ class Settings(BaseSettings):
     telegram_http_timeout_seconds: float = 10.0
     telegram_http_connect_timeout_seconds: float = 5.0
 
+    # s3
+    s3_endpoint: str
+    s3_access_key: str
+    s3_secret_key: str
+    s3_bucket: str
+    s3_region: str = "us-east-1"
+    s3_use_ssl: bool = False
+
+    # leafflow
+    leafflow_api_url: str
+    leafflow_internal_token: str
+
     @property
     def broker_url(self) -> str:
         return self.celery_broker_url or f"redis://{self.redis_host}:{self.redis_port}/{self.redis_broker_db}"

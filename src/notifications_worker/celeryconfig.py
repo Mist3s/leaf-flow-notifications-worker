@@ -21,6 +21,18 @@ task_default_queue = settings.celery_queue
 task_default_exchange = settings.celery_queue
 task_default_routing_key = settings.celery_queue
 
+task_queues = {
+    "notifications": {
+        "exchange": "notifications",
+        "routing_key": "notifications",
+    },
+    "images": {
+        "exchange": "images",
+        "routing_key": "images",
+    },
+}
+
 task_routes = {
-    "notifications.send_notification.*": {"queue": settings.celery_queue, "routing_key": settings.celery_queue},
+    "notifications.*": {"queue": "notifications"},
+    "images.*": {"queue": "images"},
 }

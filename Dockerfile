@@ -16,4 +16,4 @@ RUN pip install --upgrade pip && pip install .
 RUN useradd -m appuser && chown -R appuser:appuser /app
 USER appuser
 
-CMD ["python", "-m", "notifications_worker"]
+CMD ["celery", "-A", "notifications_worker.app", "worker", "-l", "info", "-Q", "notifications,images", "--concurrency", "4"]
